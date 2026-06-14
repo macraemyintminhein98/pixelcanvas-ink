@@ -1,0 +1,1 @@
+DROP POLICY IF EXISTS "Pixels are viewable by everyone" ON public.pixels;
