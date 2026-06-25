@@ -1,5 +1,9 @@
 {
   "outputDirectory": "dist",
-  "rewrites": [{"source": "/(.*)", "destination": "/index.html"}],
-  "headers": [{"source": "/ads.txt", "headers": [{"key": "Content-Type", "value": "text/plain"}]}]
+  "rewrites": [
+    { "source": "/((?!ads\\.txt$|robots\\.txt$|sitemap\\.xml$|favicon\\.ico$).*)", "destination": "/index.html" }
+  ],
+  "headers": [
+    { "source": "/ads.txt", "headers": [{ "key": "Content-Type", "value": "text/plain" }] }
+  ]
 }

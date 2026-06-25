@@ -14,6 +14,8 @@ import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
 import { Route as LegalRouteImport } from './routes/legal'
 import { Route as LeaderboardRouteImport } from './routes/leaderboard'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as BlogRouteImport } from './routes/blog'
 import { Route as CanvasRouteImport } from './routes/canvas'
 import { Route as AuthRouteImport } from './routes/auth'
 import { Route as AdminRouteImport } from './routes/admin'
@@ -22,6 +24,11 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as ProfileHandleRouteImport } from './routes/profile.$handle'
 import { Route as CheckoutReturnRouteImport } from './routes/checkout.return'
 import { Route as ApiPublicPaymentsWebhookRouteImport } from './routes/api/public/payments/webhook'
+import { Route as BlogMillionDollarHomepageHistoryRouteImport } from './routes/blog/million-dollar-homepage-history'
+import { Route as BlogPixelArtHistoryRouteImport } from './routes/blog/pixel-art-history'
+import { Route as BlogCollaborativeInternetArtRouteImport } from './routes/blog/collaborative-internet-art'
+import { Route as BlogDigitalOwnershipNftsPixelsRouteImport } from './routes/blog/digital-ownership-nfts-pixels'
+import { Route as BlogHowToDesignYourPixelRouteImport } from './routes/blog/how-to-design-your-pixel'
 
 const TermsRoute = TermsRouteImport.update({
   id: '/terms',
@@ -46,6 +53,16 @@ const LegalRoute = LegalRouteImport.update({
 const LeaderboardRoute = LeaderboardRouteImport.update({
   id: '/leaderboard',
   path: '/leaderboard',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogRoute = BlogRouteImport.update({
+  id: '/blog',
+  path: '/blog',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CanvasRoute = CanvasRouteImport.update({
@@ -83,179 +100,44 @@ const CheckoutReturnRoute = CheckoutReturnRouteImport.update({
   path: '/checkout/return',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ApiPublicPaymentsWebhookRoute =
-  ApiPublicPaymentsWebhookRouteImport.update({
-    id: '/api/public/payments/webhook',
-    path: '/api/public/payments/webhook',
-    getParentRoute: () => rootRouteImport,
-  } as any)
-
-export interface FileRoutesByFullPath {
-  '/': typeof IndexRoute
-  '/about': typeof AboutRoute
-  '/admin': typeof AdminRoute
-  '/auth': typeof AuthRoute
-  '/canvas': typeof CanvasRoute
-  '/leaderboard': typeof LeaderboardRoute
-  '/legal': typeof LegalRoute
-  '/privacy-policy': typeof PrivacyPolicyRoute
-  '/sitemap.xml': typeof SitemapDotxmlRoute
-  '/terms': typeof TermsRoute
-  '/checkout/return': typeof CheckoutReturnRoute
-  '/profile/$handle': typeof ProfileHandleRoute
-  '/api/public/payments/webhook': typeof ApiPublicPaymentsWebhookRoute
-}
-export interface FileRoutesByTo {
-  '/': typeof IndexRoute
-  '/about': typeof AboutRoute
-  '/admin': typeof AdminRoute
-  '/auth': typeof AuthRoute
-  '/canvas': typeof CanvasRoute
-  '/leaderboard': typeof LeaderboardRoute
-  '/legal': typeof LegalRoute
-  '/privacy-policy': typeof PrivacyPolicyRoute
-  '/sitemap.xml': typeof SitemapDotxmlRoute
-  '/terms': typeof TermsRoute
-  '/checkout/return': typeof CheckoutReturnRoute
-  '/profile/$handle': typeof ProfileHandleRoute
-  '/api/public/payments/webhook': typeof ApiPublicPaymentsWebhookRoute
-}
-export interface FileRoutesById {
-  __root__: typeof rootRouteImport
-  '/': typeof IndexRoute
-  '/about': typeof AboutRoute
-  '/admin': typeof AdminRoute
-  '/auth': typeof AuthRoute
-  '/canvas': typeof CanvasRoute
-  '/leaderboard': typeof LeaderboardRoute
-  '/legal': typeof LegalRoute
-  '/privacy-policy': typeof PrivacyPolicyRoute
-  '/sitemap.xml': typeof SitemapDotxmlRoute
-  '/terms': typeof TermsRoute
-  '/checkout/return': typeof CheckoutReturnRoute
-  '/profile/$handle': typeof ProfileHandleRoute
-  '/api/public/payments/webhook': typeof ApiPublicPaymentsWebhookRoute
-}
-export interface FileRouteTypes {
-  fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths:
-    | '/'
-    | '/about'
-    | '/admin'
-    | '/auth'
-    | '/canvas'
-    | '/leaderboard'
-    | '/legal'
-    | '/privacy-policy'
-    | '/sitemap.xml'
-    | '/terms'
-    | '/checkout/return'
-    | '/profile/$handle'
-    | '/api/public/payments/webhook'
-  fileRoutesByTo: FileRoutesByTo
-  to:
-    | '/'
-    | '/about'
-    | '/admin'
-    | '/auth'
-    | '/canvas'
-    | '/leaderboard'
-    | '/legal'
-    | '/privacy-policy'
-    | '/sitemap.xml'
-    | '/terms'
-    | '/checkout/return'
-    | '/profile/$handle'
-    | '/api/public/payments/webhook'
-  id:
-    | '__root__'
-    | '/'
-    | '/about'
-    | '/admin'
-    | '/auth'
-    | '/canvas'
-    | '/leaderboard'
-    | '/legal'
-    | '/privacy-policy'
-    | '/sitemap.xml'
-    | '/terms'
-    | '/checkout/return'
-    | '/profile/$handle'
-    | '/api/public/payments/webhook'
-  fileRoutesById: FileRoutesById
-}
-export interface RootRouteChildren {
-  IndexRoute: typeof IndexRoute
-  AboutRoute: typeof AboutRoute
-  AdminRoute: typeof AdminRoute
-  AuthRoute: typeof AuthRoute
-  CanvasRoute: typeof CanvasRoute
-  LeaderboardRoute: typeof LeaderboardRoute
-  LegalRoute: typeof LegalRoute
-  PrivacyPolicyRoute: typeof PrivacyPolicyRoute
-  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
-  TermsRoute: typeof TermsRoute
-  CheckoutReturnRoute: typeof CheckoutReturnRoute
-  ProfileHandleRoute: typeof ProfileHandleRoute
-  ApiPublicPaymentsWebhookRoute: typeof ApiPublicPaymentsWebhookRoute
-}
+const ApiPublicPaymentsWebhookRoute = ApiPublicPaymentsWebhookRouteImport.update({
+  id: '/api/public/payments/webhook',
+  path: '/api/public/payments/webhook',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogMillionDollarHomepageHistoryRoute = BlogMillionDollarHomepageHistoryRouteImport.update({
+  id: '/blog/million-dollar-homepage-history',
+  path: '/blog/million-dollar-homepage-history',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogPixelArtHistoryRoute = BlogPixelArtHistoryRouteImport.update({
+  id: '/blog/pixel-art-history',
+  path: '/blog/pixel-art-history',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogCollaborativeInternetArtRoute = BlogCollaborativeInternetArtRouteImport.update({
+  id: '/blog/collaborative-internet-art',
+  path: '/blog/collaborative-internet-art',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogDigitalOwnershipNftsPixelsRoute = BlogDigitalOwnershipNftsPixelsRouteImport.update({
+  id: '/blog/digital-ownership-nfts-pixels',
+  path: '/blog/digital-ownership-nfts-pixels',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogHowToDesignYourPixelRoute = BlogHowToDesignYourPixelRouteImport.update({
+  id: '/blog/how-to-design-your-pixel',
+  path: '/blog/how-to-design-your-pixel',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/terms': {
-      id: '/terms'
-      path: '/terms'
-      fullPath: '/terms'
-      preLoaderRoute: typeof TermsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/sitemap.xml': {
-      id: '/sitemap.xml'
-      path: '/sitemap.xml'
-      fullPath: '/sitemap.xml'
-      preLoaderRoute: typeof SitemapDotxmlRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/privacy-policy': {
-      id: '/privacy-policy'
-      path: '/privacy-policy'
-      fullPath: '/privacy-policy'
-      preLoaderRoute: typeof PrivacyPolicyRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/legal': {
-      id: '/legal'
-      path: '/legal'
-      fullPath: '/legal'
-      preLoaderRoute: typeof LegalRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/leaderboard': {
-      id: '/leaderboard'
-      path: '/leaderboard'
-      fullPath: '/leaderboard'
-      preLoaderRoute: typeof LeaderboardRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/canvas': {
-      id: '/canvas'
-      path: '/canvas'
-      fullPath: '/canvas'
-      preLoaderRoute: typeof CanvasRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/auth': {
-      id: '/auth'
-      path: '/auth'
-      fullPath: '/auth'
-      preLoaderRoute: typeof AuthRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/admin': {
-      id: '/admin'
-      path: '/admin'
-      fullPath: '/admin'
-      preLoaderRoute: typeof AdminRouteImport
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/about': {
@@ -265,11 +147,109 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AboutRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog': {
+      id: '/blog'
+      path: '/blog'
+      fullPath: '/blog'
+      preLoaderRoute: typeof BlogRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog/million-dollar-homepage-history': {
+      id: '/blog/million-dollar-homepage-history'
+      path: '/blog/million-dollar-homepage-history'
+      fullPath: '/blog/million-dollar-homepage-history'
+      preLoaderRoute: typeof BlogMillionDollarHomepageHistoryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog/pixel-art-history': {
+      id: '/blog/pixel-art-history'
+      path: '/blog/pixel-art-history'
+      fullPath: '/blog/pixel-art-history'
+      preLoaderRoute: typeof BlogPixelArtHistoryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog/collaborative-internet-art': {
+      id: '/blog/collaborative-internet-art'
+      path: '/blog/collaborative-internet-art'
+      fullPath: '/blog/collaborative-internet-art'
+      preLoaderRoute: typeof BlogCollaborativeInternetArtRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog/digital-ownership-nfts-pixels': {
+      id: '/blog/digital-ownership-nfts-pixels'
+      path: '/blog/digital-ownership-nfts-pixels'
+      fullPath: '/blog/digital-ownership-nfts-pixels'
+      preLoaderRoute: typeof BlogDigitalOwnershipNftsPixelsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog/how-to-design-your-pixel': {
+      id: '/blog/how-to-design-your-pixel'
+      path: '/blog/how-to-design-your-pixel'
+      fullPath: '/blog/how-to-design-your-pixel'
+      preLoaderRoute: typeof BlogHowToDesignYourPixelRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin': {
+      id: '/admin'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AdminRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/auth': {
+      id: '/auth'
+      path: '/auth'
+      fullPath: '/auth'
+      preLoaderRoute: typeof AuthRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/canvas': {
+      id: '/canvas'
+      path: '/canvas'
+      fullPath: '/canvas'
+      preLoaderRoute: typeof CanvasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/leaderboard': {
+      id: '/leaderboard'
+      path: '/leaderboard'
+      fullPath: '/leaderboard'
+      preLoaderRoute: typeof LeaderboardRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/legal': {
+      id: '/legal'
+      path: '/legal'
+      fullPath: '/legal'
+      preLoaderRoute: typeof LegalRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy-policy': {
+      id: '/privacy-policy'
+      path: '/privacy-policy'
+      fullPath: '/privacy-policy'
+      preLoaderRoute: typeof PrivacyPolicyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/terms': {
+      id: '/terms'
+      path: '/terms'
+      fullPath: '/terms'
+      preLoaderRoute: typeof TermsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/profile/$handle': {
@@ -296,9 +276,39 @@ declare module '@tanstack/react-router' {
   }
 }
 
+type RootRouteChildren = {
+  IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  ContactRoute: typeof ContactRoute
+  BlogRoute: typeof BlogRoute
+  BlogMillionDollarHomepageHistoryRoute: typeof BlogMillionDollarHomepageHistoryRoute
+  BlogPixelArtHistoryRoute: typeof BlogPixelArtHistoryRoute
+  BlogCollaborativeInternetArtRoute: typeof BlogCollaborativeInternetArtRoute
+  BlogDigitalOwnershipNftsPixelsRoute: typeof BlogDigitalOwnershipNftsPixelsRoute
+  BlogHowToDesignYourPixelRoute: typeof BlogHowToDesignYourPixelRoute
+  AdminRoute: typeof AdminRoute
+  AuthRoute: typeof AuthRoute
+  CanvasRoute: typeof CanvasRoute
+  LeaderboardRoute: typeof LeaderboardRoute
+  LegalRoute: typeof LegalRoute
+  PrivacyPolicyRoute: typeof PrivacyPolicyRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  TermsRoute: typeof TermsRoute
+  CheckoutReturnRoute: typeof CheckoutReturnRoute
+  ProfileHandleRoute: typeof ProfileHandleRoute
+  ApiPublicPaymentsWebhookRoute: typeof ApiPublicPaymentsWebhookRoute
+}
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  ContactRoute: ContactRoute,
+  BlogRoute: BlogRoute,
+  BlogMillionDollarHomepageHistoryRoute: BlogMillionDollarHomepageHistoryRoute,
+  BlogPixelArtHistoryRoute: BlogPixelArtHistoryRoute,
+  BlogCollaborativeInternetArtRoute: BlogCollaborativeInternetArtRoute,
+  BlogDigitalOwnershipNftsPixelsRoute: BlogDigitalOwnershipNftsPixelsRoute,
+  BlogHowToDesignYourPixelRoute: BlogHowToDesignYourPixelRoute,
   AdminRoute: AdminRoute,
   AuthRoute: AuthRoute,
   CanvasRoute: CanvasRoute,
@@ -324,3 +334,15 @@ declare module '@tanstack/react-start' {
     config: Awaited<ReturnType<typeof startInstance.getOptions>>
   }
 }
+
+type FileRouteTypes = {
+  fileRoutesByFullPath: FileRoutesByFullPath
+  fullPaths: keyof FileRoutesByFullPath
+  fileRoutesByTo: FileRoutesByTo
+  to: keyof FileRoutesByTo
+  id: keyof FileRoutesByPath
+  fileRoutesById: FileRoutesByPath
+}
+
+type FileRoutesByFullPath = FileRoutesByPath
+type FileRoutesByTo = FileRoutesByPath
