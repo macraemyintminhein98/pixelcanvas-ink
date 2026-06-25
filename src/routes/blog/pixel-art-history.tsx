@@ -6,7 +6,7 @@ export const Route = createFileRoute("/blog/pixel-art-history")({
   head: () => ({
     meta: [
       { title: "A Brief History of Pixel Art | PixelCanvas Blog" },
-      { name: "description", content: "Pixel art started as a technical constraint and became a celebrated art form. Trace its evolution from early video games to modern design." },
+      { name: "description", content: "From technical constraint to celebrated art form: the complete history of pixel art from 8-bit games to modern digital masterpieces." },
     ],
   }),
   component: Page,
@@ -17,30 +17,35 @@ function Page() {
     <div className="min-h-screen bg-paper text-ink">
       <Nav />
       <main className="mx-auto max-w-3xl px-4 py-10 prose prose-sm max-w-none">
-        <Link to="/blog" className="text-sm text-flame hover:underline">← Back to Blog</Link>
+        <Link to="/blog" className="text-sm text-flame hover:underline not-prose">← Back to Blog</Link>
         <h1 className="font-display text-4xl mt-4 mb-2">A Brief History of Pixel Art: From 8-Bit to Modern Masterpieces</h1>
-        <p className="text-sm text-muted-foreground mb-8">June 2026 · 5 min read</p>
+        <p className="text-sm text-muted-foreground mb-8">June 2026 · 6 min read</p>
 
-        <p>Pixel art began not as an aesthetic choice but as a technical necessity. In the 1970s and 80s, the limited memory and processing power of early computers and game consoles meant that graphics had to be small, simple, and carefully constructed one pixel at a time. What started as constraint became craft — and eventually, a celebrated art form in its own right.</p>
+        <p>Pixel art didn't begin as an artistic choice. It began as the only option. The earliest digital graphics were created under hardware constraints so severe that every single pixel was a deliberate decision — there was no room for approximation or shortcuts. What started as technical necessity became craft, then discipline, then a celebrated art form with its own aesthetics, community, and tools. Understanding this history reveals why pixel art remains culturally significant long after the constraints that created it disappeared.</p>
 
-        <h2>The Technical Origins</h2>
-        <p>The earliest digital graphics were created on machines with severe limitations. The Atari 2600, released in 1977, had a display resolution of 160×192 pixels with a limited color palette. Every pixel had to be intentional. Artists working on these platforms developed extraordinary skill at communicating form, movement, and emotion through tiny grids of color.</p>
-        <p>The Famicom (NES) era of the 1980s pushed pixel art to its cultural peak. Games like Super Mario Bros., The Legend of Zelda, and Mega Man defined visual languages that billions of people still recognize instantly. Sprites were typically 16×16 or 32×32 pixels. The constraint forced clarity — every pixel had a purpose.</p>
+        <h2>The Hardware Origins: 1970s–1980s</h2>
+        <p>The Atari 2600, released in 1977, displayed graphics at 160×192 pixels with a severely limited color palette. Memory constraints meant that each screen could hold only a small amount of image data. Artists working on these platforms — often engineers who taught themselves to draw under these constraints — developed extraordinary skill at suggesting form, motion, and expression through minimal means. A face made of a dozen pixels. A spaceship rendered in eight squares. Movement implied through frame-by-frame changes in simple shapes.</p>
+        <p>The constraints forced clarity. There was no room for visual noise. Every pixel carried weight. Artists learned to use color contrast, silhouette, and negative space because they had no other tools. The discipline this imposed became the foundation of pixel art's visual language.</p>
+        <p>The NES and Famicom era of the mid-1980s pushed pixel art to its first cultural peak. Games like Super Mario Bros., The Legend of Zelda, Mega Man, and Castlevania defined visual identities that became globally iconic. Sprites of 16×16 or 32×32 pixels were recognizable as specific characters at a glance — testimony to how much information skilled artists could pack into small grids through careful color and shape decisions.</p>
 
         <h2>The 16-Bit Renaissance</h2>
-        <p>The Super Nintendo and Sega Genesis era brought more colors, larger sprites, and more sophisticated techniques. Artists developed methods like dithering (alternating pixels of two colors to simulate a third), careful highlight and shadow placement, and consistent perspective rules. Chrono Trigger, Street Fighter II, and Final Fantasy VI represent the artistic pinnacle of hardware-constrained pixel art.</p>
+        <p>The Super Nintendo and Sega Genesis introduced larger color palettes, bigger sprites, and more sophisticated rendering techniques. Artists developed specialized methods: dithering, which alternates pixels of two colors to simulate a third; careful specular highlighting using a single bright pixel to suggest a light source; consistent perspective conventions shared across a game's entire visual system. The results were striking — games like Chrono Trigger, Street Fighter II, and Sonic the Hedgehog achieved visual richness that still holds up aesthetically today.</p>
+        <p>This era also saw the development of explicit techniques that were later formalized into pixel art practice: selective outlining (drawing outlines only where they aid clarity), pillow shading vs. form shading (the latter being correct for three-dimensional objects), and anti-aliasing by hand (manually placing half-toned pixels to smooth jagged diagonal lines).</p>
 
-        <h2>When Pixel Art Became Optional</h2>
-        <p>By the mid-1990s, hardware had advanced enough that 3D graphics became viable. Pixel art stopped being necessary. For a decade or so, it was associated with low budgets and outdated technology. Then something interesting happened: it came back, deliberately.</p>
-        <p>Indie developers in the mid-2000s began choosing pixel art not because they had to, but because they wanted to. Cave Story (2004), created by a single developer over five years, demonstrated that pixel art could carry an emotionally rich, full-length game. It proved pixel art was an aesthetic choice, not a compromise.</p>
+        <h2>The Wilderness Years: 1995–2005</h2>
+        <p>When 3D graphics became viable in the mid-1990s, pixel art was suddenly associated with low budgets and outdated technology. Major studios moved to polygonal rendering. Pixel art became something you used when you couldn't afford better. For a decade, the form was culturally marginalized despite remaining technically demanding and visually distinctive.</p>
+
+        <h2>The Independent Revival</h2>
+        <p>The revival came from independent developers who chose pixel art not from necessity but from conviction. Cave Story, completed by a single developer over five years and released in 2004, demonstrated that pixel art could carry a full-length, emotionally rich game. It was followed by a wave of indie titles — Spelunky, Shovel Knight, Undertale, Celeste — that used pixel art deliberately, treating it as a visual language with specific expressive capabilities rather than a technical limitation.</p>
+        <p>These games proved that pixel art wasn't nostalgia bait. It offered something distinctive: legibility, clarity of form, and a handcrafted quality visible at the pixel level that procedural and photorealistic rendering couldn't replicate. Each frame was evidence of individual human decisions about color and form.</p>
 
         <h2>Pixel Art Today</h2>
-        <p>In 2026, pixel art is everywhere. It appears in critically acclaimed games, graphic novels, product design, and fashion. Artists like Paul Robertson create detailed, animated pixel scenes that function as standalone artworks. The format has its own conventions, communities, and tools — Aseprite has become the industry-standard pixel art editor with tens of thousands of active users.</p>
-        <p>What makes pixel art endure is its legibility. Every shape is simplified to its essence. Every color choice is visible and deliberate. At a time when most digital imagery is generated by algorithms or captured by cameras, pixel art is unmistakably hand-crafted — individual decisions visible in every square.</p>
+        <p>In 2026, pixel art appears across games, graphic design, fashion, and fine art. Tools like Aseprite have created a shared professional environment with tens of thousands of active users. Artists like Paul Robertson and Fool's Art create pixel animations of extraordinary complexity and detail that function as standalone artworks. The form has established conventions, vocabulary, and teaching resources that make it accessible as a starting discipline while remaining deep enough for lifetime mastery.</p>
+        <p>What makes pixel art endure is precisely what made it necessary: the visibility of the grid. In a medium where every element is discrete and countable, the human decisions behind the work are evident in a way that other digital art forms can obscure. Each square is a choice.</p>
 
         <div className="brut-border bg-zap/30 p-5 mt-8 not-prose">
-          <p className="font-bold mb-1">Add your pixel to the canvas</p>
-          <p className="text-sm text-muted-foreground mb-3">One square. Your color. Your link. Forever.</p>
+          <p className="font-bold mb-1">Add your pixel to history</p>
+          <p className="text-sm text-muted-foreground mb-3">One square. Your color. Permanent.</p>
           <Link to="/canvas" className="inline-block brut-border bg-flame px-4 py-2 font-display text-sm uppercase text-paper brut-shadow-sm">Open the canvas →</Link>
         </div>
       </main>
